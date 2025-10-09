@@ -6,7 +6,7 @@
 [Validation(direct)](https://huggingface.co/datasets/Share4oReasoning/dpo_data) 6k samples with direct answer instructions
 
 ## Model ckpt
-[SFT](https://huggingface.co/Share4oReasoning/Open-LLaVA-NeXT-LLaMA3-8B): base model 
+[LLaVA-NeXT](https://huggingface.co/Share4oReasoning/Open-LLaVA-NeXT-LLaMA3-8B): base model 
 
 [SFT+TPO](https://huggingface.co/Share4oReasoning/LLaVA-Reasoner-SFT-preview): SFT 3 epochs + TPO 1 epochs
 
