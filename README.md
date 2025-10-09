@@ -17,7 +17,7 @@
 ```
 # setup environment, need to fill in the required fields
 source setup/setup_env.sh
-
+```
 ## sft
 ```
 cd llavida
