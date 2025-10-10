@@ -4,6 +4,8 @@
 [SFT-Training](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 23k cot+trajectory predictions 
 [Validation](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 6k samples
 [Validation(direct)](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 6k samples with direct answer instructions
+[Nuscenes](https://www.nuscenes.org/nuscenes#download) Unzip all file into one folder(nuscenes) and put into exp/data
+[NuPlan](https://www.nuscenes.org/nuplan) Unzip all file into one folder(nuplan) and put into exp/data
 
 ## Model ckpt
 [LLaVA-NeXT](https://huggingface.co/Share4oReasoning/Open-LLaVA-NeXT-LLaMA3-8B): base model 
