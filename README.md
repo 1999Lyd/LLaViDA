@@ -1,16 +1,16 @@
 # Large Language Vision Driving Assistant
 
 ## Dataset
-[SFT-Training](https://huggingface.co/datasets/Share4oReasoning/sft_data) 23k cot+trajectory predictions 
-[Validation](https://huggingface.co/datasets/Share4oReasoning/dpo_data) 6k samples
-[Validation(direct)](https://huggingface.co/datasets/Share4oReasoning/dpo_data) 6k samples with direct answer instructions
+[SFT-Training](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 23k cot+trajectory predictions 
+[Validation](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 6k samples
+[Validation(direct)](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing) 6k samples with direct answer instructions
 
 ## Model ckpt
 [LLaVA-NeXT](https://huggingface.co/Share4oReasoning/Open-LLaVA-NeXT-LLaMA3-8B): base model 
 
-[SFT+TPO](https://huggingface.co/Share4oReasoning/LLaVA-Reasoner-SFT-preview): SFT 3 epochs + TPO 1 epochs
+[SFT+TPO](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing): SFT 3 epochs + TPO 1 epochs
 
-[Direct](https://huggingface.co/Share4oReasoning/LLaVA-Reasoner-SFT): SFT +TPO with mixed data, optimized for fast inference
+[Direct](https://drive.google.com/drive/folders/1tRhodZ-tRRluO_4yVm9wRBzxPHZ-WtRb?usp=sharing): SFT +TPO with mixed data, optimized for fast inference
 
 
 ## setup 
