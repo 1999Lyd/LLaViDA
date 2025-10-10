@@ -7,7 +7,7 @@ truncate_len=${2:-90} # > 1 (i.e. 90) is truncate length, < 1 (i.e. 0.8) is trun
 # cos decay has similar performance to truncate. linear decay is worse.
 
 # DATA
-dpo_dir=exp/data/vlm_reason/image_instruction
+dpo_dir=exp/data/
 
 data_paths="$dpo_dir/dpo_data.jsonl"
 
