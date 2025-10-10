@@ -31,6 +31,15 @@ cd llavida
 bash scripts_dpo/run_dpo.sh \
 $SAVE_DIR/dpo/LLaVA-Reasoner-DPO-context
 ```
+
+## evaluation
+```
+cd llavida
+# cot version
+bash scripts/eval.sh
+# direct version
+bash scripts/eval_direct.sh
+```
 ## citation
 ```
 
