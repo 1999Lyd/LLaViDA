@@ -4,7 +4,7 @@ export ROOT="exp"
 export DATA_DIR=$ROOT/data
 export SAVE_DIR=$ROOT/ckpt
 export CACHE_DIR=$ROOT/cache
-export CODE_DIR=$HOME/LLaVA-Reasoner-DPO
+export CODE_DIR=$HOME/LLaViDA
 export NOTEBOOK_DIR=$CODE_DIR/notebook
 
 # huggingface token, for data, ckpt downloading
@@ -36,12 +36,12 @@ mkdir -p $DATA_DIR
 mkdir -p $SAVE_DIR
 mkdir -p $CACHE_DIR
 
-export IMAGE_DATA_DIR=$DATA_DIR/vlm_reason/image_data
-export IMAGE_INSTRUCTION_DIR=$DATA_DIR/vlm_reason/image_instruction
-export REWARD_DIR=$DATA_DIR/vlm_reason/reward
+export IMAGE_DATA_DIR=$DATA_DIR
+export IMAGE_INSTRUCTION_DIR=$DATA_DIR
+export REWARD_DIR=$DATA_DIR/reward
 
-export RESULT_DIR=${DATA_DIR}/vlm_reason/result
-export LMUData=$DATA_DIR/vlm_reason/vlmeval
+export RESULT_DIR=${DATA_DIR}/results
+export LMUData=$DATA_DIR/vlmeval
 mkdir -p $LMUData
 
 mkdir -p $IMAGE_DATA_DIR
