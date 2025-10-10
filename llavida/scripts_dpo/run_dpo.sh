@@ -1,22 +1,17 @@
 # model_name_or_path=$SAVE_DIR/upload/LLaVA-Reasoner-SFT-preview
-model_name_or_path=../exp/ckpt/LLaVA-Reasoner-SFT
+model_name_or_path=exp/sft/LLaVA-Reasoner-SFT-context
 # model_path=
-output_dir=../exp/dpo/LLaVA-Reasoner-DPO-preview
+output_dir=exp/dpo/LLaVA-Reasoner-DPO-context
 truncate_len=${2:-90} # > 1 (i.e. 90) is truncate length, < 1 (i.e. 0.8) is truncate ratio
 # discount_factor_type supports ['cos', 'linear'] decay for dpo token reweighting. 'none' for no discount factor (default).
 # cos decay has similar performance to truncate. linear decay is worse.
 
 # DATA
-dpo_dir=../exp/data/vlm_reason/image_instruction
+dpo_dir=exp/data/vlm_reason/image_instruction
 
-data_paths="\
-$dpo_dir/chartqa.pairwise.train.jsonl
-$dpo_dir/aokvqa.pairwise.train.jsonl
-"
-eval_data_paths="\
-$dpo_dir/chartqa.pairwise.dev.jsonl
-$dpo_dir/aokvqa.pairwise.dev.jsonl
-"
+data_paths="$dpo_dir/dpo_data.jsonl"
+
+eval_data_paths="$dpo_dir/dpo_data_eval.jsonl"
 
 echo data paths: $data_paths
 echo eval data paths: $eval_data_paths
@@ -36,7 +31,7 @@ export report_to=wandb
 wandb_args="--report_to $report_to"
 
 
-gpu_ids=7
+gpu_ids=2,5,6,7
 export CUDA_VISIBLE_DEVICES=$gpu_ids
 n_gpu=$(echo $gpu_ids | tr "," "\n" | wc -l)
 echo "Using $n_gpu GPUs: $gpu_ids"
@@ -54,7 +49,7 @@ image_folder=$IMAGE_DATA_DIR
 version=llava_llama_3
 BASE_LR=5e-7
 batch_size=1
-grad_cum=4
+grad_cum=1
 
 
 # not updating vision tower, skip:
@@ -63,8 +58,8 @@ grad_cum=4
 # --group_by_modality_length True \
 
 # train 1 ep + truncate, freeze mm_projector
-torchrun --nproc_per_node=$n_gpu --master_port=$port scripts_dpo/run_dpo.py \
-    --deepspeed scripts/zero2.json \
+nohup torchrun --nproc_per_node=$n_gpu --master_port=$port scripts_dpo/run_dpo.py \
+    --deepspeed scripts/zero3.json \
     --model_name_or_path $model_name_or_path \
     --dpo_alpha 1.0 --beta 0.1 --gamma 0 \
     --truncate_len $truncate_len --discount_factor_type none \
@@ -86,7 +81,7 @@ torchrun --nproc_per_node=$n_gpu --master_port=$port scripts_dpo/run_dpo.py \
     --per_device_train_batch_size ${batch_size} \
     --per_device_eval_batch_size ${batch_size} \
     --gradient_accumulation_steps $grad_cum \
-    --evaluation_strategy "steps" --eval_steps 0.1 \
+    --evaluation_strategy "steps" --eval_steps 10000 \
     --save_strategy "no"  --save_only_model True --save_total_limit 1 \
     --learning_rate ${BASE_LR} \
     --weight_decay 0. \
@@ -94,10 +89,10 @@ torchrun --nproc_per_node=$n_gpu --master_port=$port scripts_dpo/run_dpo.py \
     --lr_scheduler_type "cosine" \
     --logging_steps 1 \
     --tf32 True \
-    --model_max_length 6144 \
+    --model_max_length 9999 \
     --gradient_checkpointing True \
     --lazy_preprocess True \
     --report_to none \
     --dataloader_num_workers 8 \
     --cache_dir $cache_dir \
-    --report_to $report_to 2>&1 | tee $output_dir/train.log
+    --report_to $report_to 2>&1 | tee $output_dir/train.log > dpovlm.log 2>&1 &
