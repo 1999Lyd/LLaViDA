@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-model_name=exp/sft/LLaVA-Reasoner-SFT-context
-output_dir=exp/sft/post_sft_eval_result
+model_name=exp/sft/LLaVA-Reasoner-DPO-context
+output_dir=exp/dpo/post_dpo_eval_result
 
 sft_dir=exp/data
 pretrain_dir=$IMAGE_INSTRUCTION_DIR/pretrain
