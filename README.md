@@ -51,8 +51,8 @@ Setting up similation env and run the script
 git clone https://github.com/motional/nuplan-devkit.git && cd nuplan-devkit
 pip install -e .
 pip install -r requirements.txt
-bash sim_llavida_planner_runner.sh
 ```
+ToDo: Release close loop evaluation code
 
 ## citation
 ```
