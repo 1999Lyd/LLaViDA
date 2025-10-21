@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-model_name=exp/sft/LLaVA-Reasoner-DPO-direct
+model_name=exp/sft/LLaViDA-DPO-direct
 output_dir=exp/dpo/post_dpo_eval_result
 
 sft_dir=exp/data
