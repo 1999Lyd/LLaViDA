@@ -1,5 +1,5 @@
 model_name=exp/ckpt/Open-LLaVA-NeXT-LLaMA3-8B
-output_dir=exp/sft/LLaVA-Reasoner-SFT-context
+output_dir=exp/sft/LLaViDA-SFT-context
 
 sft_dir=exp/data
 pretrain_dir=$IMAGE_INSTRUCTION_DIR/pretrain
