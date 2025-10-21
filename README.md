@@ -24,14 +24,14 @@ source setup/setup_env.sh
 ```
 cd llavida
 bash scripts_sft/run_sft.sh \
-$SAVE_DIR/sft/LLaVA-Reasoner-SFT-context
+$SAVE_DIR/sft/LLaViDA-SFT-context
 ```
 
 ## dpo
 ```
 cd llavida
 bash scripts_dpo/run_dpo.sh \
-$SAVE_DIR/dpo/LLaVA-Reasoner-DPO-context
+$SAVE_DIR/dpo/LLaViDA-DPO-context
 ```
 
 ## open loop evaluation
