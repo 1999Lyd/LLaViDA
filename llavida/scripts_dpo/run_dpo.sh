@@ -1,5 +1,5 @@
 # model_name_or_path=$SAVE_DIR/upload/LLaVA-Reasoner-SFT-preview
-model_name_or_path=exp/sft/LLaVA-Reasoner-SFT-context
+model_name_or_path=exp/sft/LLaViDA-SFT-context
 # model_path=
 output_dir=exp/dpo/LLaVA-Reasoner-DPO-context
 truncate_len=${2:-90} # > 1 (i.e. 90) is truncate length, < 1 (i.e. 0.8) is truncate ratio
