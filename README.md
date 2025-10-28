@@ -41,6 +41,10 @@ cd llavida
 bash scripts/eval.sh
 # direct version
 bash scripts/eval_direct.sh
+# perception with BEVFormer
+# Clone BEVFormer
+git clone https://github.com/fundamentalvision/BEVFormer.git
+# Follow the evaluation step in BEVFormer, a json file containing perception results will be generated. Then run text_converter.py to convert it to structured natural language.
 ```
 ## close loop evaluation
 Setting up NuPlan dataset following [official doc](https://nuplan-devkit.readthedocs.io/en/latest/dataset_setup.html).
