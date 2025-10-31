@@ -44,8 +44,9 @@ bash scripts/eval_direct.sh
 # perception with BEVFormer
 # Clone BEVFormer
 git clone https://github.com/fundamentalvision/BEVFormer.git
-# Follow the evaluation step in BEVFormer, a json file containing perception results will be generated.
-# Then run text_converter.py to convert it to structured natural language.
+# Follow the evaluation step in BEVFormer, a json file containing perception results will be generated. Then run text_converter.py to convert it to structured natural language.
+# A jsonl file containing model answers will be generated, run convert2pkl.py to extract the predicted trajectory and save in pkl file. Then run the evaluation script to get results.
+sh scripts/run_evaluation.sh stp3 experiments/predictions.pkl
 ```
 ## close loop evaluation
 Setting up NuPlan dataset following [official doc](https://nuplan-devkit.readthedocs.io/en/latest/dataset_setup.html).
@@ -70,4 +71,6 @@ Thanks to
 (open-llava-next)[https://github.com/xiaoachen98/Open-LLaVA-NeXT]: for base model and sft training
 
 (LLaVA-Hound)[https://github.com/RifleZhang/LLaVA-Hound-DPO/tree/main]: for dpo related 
+
+(Agent-Driver)[https://github.com/USC-GVL/Agent-Driver]: for trajectory evaluation
 
